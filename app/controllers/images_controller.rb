@@ -7,6 +7,9 @@ class ImagesController < ApplicationController
   end
 
   def destroy
+    params[:files].each do |file|
+      Image.find(file).destroy!
+    end
   end
 
   def create
